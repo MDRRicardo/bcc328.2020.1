@@ -17,7 +17,6 @@ rule token = parse
   | spaces            { token lexbuf }
   | '\n'              { L.new_line lexbuf; token lexbuf }
   | integer as lxm    { LITINT (int_of_string lxm) }
-  | id as lxm         { ID (Symbol.symbol lxm) }
   | '+'               { PLUS }
   | "let"             { LET }
   | "in"              { IN }
@@ -31,6 +30,7 @@ rule token = parse
   | ','               { COMMA }
   | '='               { EQ }
   | '<'               { LT }
+  | id as lxm         { ID (Symbol.symbol lxm) }
  
 
   (* add other lexical rules *)
