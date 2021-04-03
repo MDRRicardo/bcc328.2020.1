@@ -9,11 +9,22 @@ type 'a loc = 'a Location.loc
 type operator =
   | Plus
   | LT
+  | EQ
   [@@deriving show]
 
 type exp =
-  | IntExp of int
-  | OpExp of operator * lexp * lexp
+  | IntExp  of int
+  | IdExp   of symbol
+  | IdFunctionExp of symbol * lexp list
+  | IfExp   of lexp * lexp * lexp
+  | LetExp  of symbol * lexp * lexp
+  | OpExp   of operator * lexp * lexp
+  [@@deriving show]
+
+and exps = (lexp) list
+  [@@deriving show]
+
+and funs = (lfundec) list
   [@@deriving show]
 
 and fundec = (type_ * symbol) * (type_ * symbol) list * lexp

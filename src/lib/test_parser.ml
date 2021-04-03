@@ -6,7 +6,7 @@ let check str =
   let lexbuf = L.from_string str in
   try
     let ast = Parser.program Lexer.token lexbuf in
-    let tree = Absyntree.flat_nodes (Absyntree.tree_of_lfundec ast) in
+    let tree = Absyntree.flat_nodes (Absyntree.tree_of_funs ast) in
     let box = Tree.box_of_tree tree in
     Format.printf "%s\n\n%!" (Box.string_of_box box);
   with

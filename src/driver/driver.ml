@@ -34,7 +34,7 @@ let main () =
       print_endline "Abstract syntax tree:";
       print_endline "============================================================";
       (* Format.printf "%s\n" (Absyn.show_lexp ast); *)
-      let tree = Absyntree.flat_nodes (Absyntree.tree_of_lfundec ast) in
+      let tree = Absyntree.flat_nodes (Absyntree.tree_of_funs ast) in
       let boxtree = Tree.box_of_tree tree in
       print_endline (Box.string_of_box boxtree);
       print_endline (Tree.string_of_tree tree)
