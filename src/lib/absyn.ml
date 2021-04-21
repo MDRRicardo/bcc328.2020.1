@@ -13,8 +13,14 @@ type operator =
 
 type exp =
   | IntExp of int
+  | VarExp of symbol
   | OpExp of operator * lexp * lexp
+  | IfExp of lexp * lexp * lexp
+  | CallExp of symbol * lexp list
+  | LetExp of symbol * lexp * lexp
   [@@deriving show]
+
+and program = lfundec list
 
 and fundec = (type_ * symbol) * (type_ * symbol) list * lexp
   [@@deriving show]
