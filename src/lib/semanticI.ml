@@ -98,7 +98,6 @@ and check_type_ids(typeids) =
                       | Some _ -> Symbol.empty (* throw error *)
                       | None -> Symbol.enter x t vtable
 
-
 (* type checking a program
    code according to page 122 of Introduction to Compiler Design *)
 (* not loc *)
@@ -131,7 +130,6 @@ let rec get_funs(funs) =
                     match Symbol.look f ftable with
                     | None -> Symbol.enter f params ftable
                     | Some _ -> Symbol.empty   (*Error.error (Location.loc fun') "debug funs" ftable*)
-
 
 let check_program(program) =
   let ftable = get_funs(program) in
